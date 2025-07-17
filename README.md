@@ -60,20 +60,7 @@ We strongly recommend reading [papers](https://arxiv.org/abs/2406.09509) and [do
 
 #### 1. Create and activate conda environment with your preferred Python version.
 ```bash
-$ conda create -n cleandiffuser python==3.10
-$ conda activate cleandiffuser
-```
-#### 2. Install PyTorch
-Install `torch>1.0.0` that is compatible with your CUDA version. For example, `PyTorch 2.2.2` with `CUDA 12.1`:
-```bash
-$ conda install pytorch==2.2.2 torchvision==0.17.2 pytorch-cuda=12.1 -c pytorch -c nvidia
-```
-#### 3. Install CleanDiffuser from source
-```bash
-$ git clone https://github.com/CleanDiffuserTeam/CleanDiffuser.git
-$ cd CleanDiffuser
-$ git checkout lightning
-$ pip install -e .
+$ uv sync
 ```
 #### 4. Optional Dependencies
 **D4RL:** Most of our RL pipeline files run on D4RL benchmarks. Please install `mujoco` and `d4rl` following [this](https://github.com/Farama-Foundation/D4RL).
