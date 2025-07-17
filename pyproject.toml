@@ -27,6 +27,13 @@ dependencies = [
     "termcolor",
 ]
 
+[project.optional-dependencies]  
+jupyter = [  
+    "jupyter",  
+    "jupyterlab",   
+    "ipykernel"  
+]
+
 [project.urls]
 Homepage = "https://cleandiffuserteam.github.io/CleanDiffuserDocs/"
 Repository = "https://github.com/CleanDiffuserTeam/CleanDiffuser"
