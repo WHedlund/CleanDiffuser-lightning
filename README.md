@@ -47,22 +47,28 @@ We strongly recommend reading [papers](https://arxiv.org/abs/2406.09509) and [do
 
 <!-- NEWS -->
 ## 🔥 News and Change Log
+
 - [**2025-03-10**] 🎉 Reimplement pipeline files in Lightning style. Add support for pretrained inverse dynamics models and IQL models. Add Gym-like environment wrappers for popular embodied AI benchmarks (e.g., PushT, Robomimic, Kitchen, Libero) and their datasets. Please see the [update logs](assets/update0310.md) for more details.
 - [**2025-02-15**] 🥳 We have added a diffusion planner based on empirical studies using CleanDiffuser, [Diffusion Veteran](https://openreview.net/forum?id=7BQkXXM8Fy).
 - [**2024-09-26**] 🎁 Our paper [CleanDiffuser](https://arxiv.org/abs/2406.09509), has been accepted by **NeurIPS 2024 Datasets and Benchmark Track**!
 - [**2024-08-27**] 🥳 We have added a lightning-fast diffusion planner, [DiffuserLite](https://arxiv.org/pdf/2401.15443), and two popular diffusion policies, [SfBC](https://arxiv.org/abs/2209.14548) and [QGPO](https://arxiv.org/abs/2304.12824), to the pipeline. Additionally, we have updated some unit tests and [API documentation](https://cleandiffuserteam.github.io/CleanDiffuserDocs/).
 - [**2024-07-03**] 💫 We provided a CleanDiffuser-based replication of ACT ([action chunking with transformers](https://arxiv.org/abs/2304.13705)) in the [act branch](https://github.com/CleanDiffuserTeam/CleanDiffuser/tree/act).
-- [**2024-06-24**] 🥰 We have added Consistency Models into CleanDifuser. With one model, you can do both Consistency Distillation and Consistency Training! Check out an example in `tutorials/sp_consistency_policy.py` ! (Note: Our consistency training implementation refers to the improved version, see https://arxiv.org/abs/2310.14189.)
-- [**2024-06-17**] 🔥 We released arxiv version of [**CleanDiffuser: An Easy-to-use Modularized Library for Diffusion Models in Decision Making**](https://arxiv.org/abs/2406.09509). 
+- [**2024-06-24**] 🥰 We have added Consistency Models into CleanDifuser. With one model, you can do both Consistency Distillation and Consistency Training! Check out an example in `tutorials/sp_consistency_policy.py` ! (Note: Our consistency training implementation refers to the improved version, see <https://arxiv.org/abs/2310.14189>.)
+- [**2024-06-17**] 🔥 We released arxiv version of [**CleanDiffuser: An Easy-to-use Modularized Library for Diffusion Models in Decision Making**](https://arxiv.org/abs/2406.09509).
 
 <!-- GETTING STARTED -->
 ## 🛠️ Getting Started
 
-#### 1. Create and activate conda environment with your preferred Python version.
+#### 1. Create and activate conda environment with your preferred Python version
+
 ```bash
 $ uv sync
+or
+$ uv sync --extra jupyter 
 ```
+
 #### 4. Optional Dependencies
+
 **D4RL:** Most of our RL pipeline files run on D4RL benchmarks. Please install `mujoco` and `d4rl` following [this](https://github.com/Farama-Foundation/D4RL).
 
 **Robomimic, PushT, Kitchen, Libero:** Most of our IL pipeline files run on these embodied AI benchmarks. Please install following instructions [here](/cleandiffuser/env/README.md).
@@ -96,6 +102,7 @@ For any questions, please feel free to email `zibindong@outlook.com` and `yuanyf
 ## 📝 Citation
 
 If you find our work useful, please consider citing:
+
 ```
 @inproceedings{dong2024cleandiffuser,
 title={CleanDiffuser: An Easy-to-use Modularized Library for Diffusion Models in Decision Making},
@@ -105,4 +112,3 @@ year={2024},
 url={https://openreview.net/forum?id=7ey2ugXs36}
 }
 ```
- 
