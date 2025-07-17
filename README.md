@@ -64,7 +64,9 @@ We strongly recommend reading [papers](https://arxiv.org/abs/2406.09509) and [do
 ```bash
 $ uv sync
 or
-$ uv sync --extra jupyter 
+$ uv sync --extra jupyter --extra d4rl
+or
+$ uv sync --all-extras
 ```
 
 #### 4. Optional Dependencies

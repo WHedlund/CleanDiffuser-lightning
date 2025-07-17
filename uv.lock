@@ -311,7 +311,7 @@ dependencies = [
     { name = "gym" },
     { name = "imagecodecs" },
     { name = "matplotlib" },
-    { name = "mujoco-py" },
+    { name = "mujoco" },
     { name = "numba" },
     { name = "numpy" },
     { name = "opencv-python" },
@@ -326,6 +326,9 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+d4rl = [
+    { name = "d4rl" },
+]
 jupyter = [
     { name = "ipykernel" },
     { name = "jupyter" },
@@ -336,6 +339,7 @@ jupyter = [
 requires-dist = [
     { name = "av" },
     { name = "cython", specifier = "==3.0.0a10" },
+    { name = "d4rl", marker = "extra == 'd4rl'", git = "https://github.com/Farama-Foundation/d4rl?branch=master" },
     { name = "dill" },
     { name = "dm-control", specifier = ">=1.0.3,<=1.0.20" },
     { name = "einops" },
@@ -345,7 +349,7 @@ requires-dist = [
     { name = "jupyter", marker = "extra == 'jupyter'" },
     { name = "jupyterlab", marker = "extra == 'jupyter'" },
     { name = "matplotlib", specifier = "<=3.7.5" },
-    { name = "mujoco-py", specifier = ">=2.0,<=3.1.6" },
+    { name = "mujoco", specifier = ">=2.0,<=3.1.6" },
     { name = "numba", specifier = "<0.60.0" },
     { name = "numpy", specifier = "<1.23.0" },
     { name = "opencv-python" },
@@ -358,7 +362,19 @@ requires-dist = [
     { name = "torchvision", marker = "sys_platform == 'linux' or sys_platform == 'win32'", index = "https://download.pytorch.org/whl/cu121" },
     { name = "zarr", specifier = "<2.17" },
 ]
-provides-extras = ["jupyter"]
+provides-extras = ["d4rl", "jupyter"]
+
+[[package]]
+name = "click"
+version = "8.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz", hash = "sha256:27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202", size = 286342, upload-time = "2025-05-20T23:19:49.832Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/85/32/10bb5764d90a8eee674e9dc6f4db6a0ab47c8c4d0d83c27f7c39ac415a4d/click-8.2.1-py3-none-any.whl", hash = "sha256:61a3265b914e850b85317d0b3109c7f8cd35a670f963866005d6ef1d5175a12b", size = 102215, upload-time = "2025-05-20T23:19:47.796Z" },
+]
 
 [[package]]
 name = "cloudpickle"
@@ -431,6 +447,22 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/8f/49/6577b6f4a02b187a4aa2487142fbe1d29c276a109f4fd6d9ff383f2660b7/Cython-3.0.0a10-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_24_i686.whl", hash = "sha256:6e8cb4e00e5385461f960146435df3645c7dd45752c7552732a700632588091d", size = 2242268, upload-time = "2022-01-07T01:11:15.708Z" },
     { url = "https://files.pythonhosted.org/packages/54/03/e23762a1ad52a3e9ebcee31a9dcd4f8ccaba8dfb42e7529aa929207ea2d9/Cython-3.0.0a10-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:fb8e22b1e5000a41ae87679018e5fafc99d70f5bd6b3bd5dd493fd1fb3e0bd75", size = 2346284, upload-time = "2022-01-07T01:11:23.145Z" },
     { url = "https://files.pythonhosted.org/packages/c4/7c/293f5e9311664af5f54ca46dcb2118fc1b4e551eec161f74c050f17cd991/Cython-3.0.0a10-py2.py3-none-any.whl", hash = "sha256:9f2f7198a2c7db2d5118dffaaaab357927f689bbcb517fb37083724500a02a0c", size = 1068543, upload-time = "2022-01-07T01:10:32.214Z" },
+]
+
+[[package]]
+name = "d4rl"
+version = "1.1"
+source = { git = "https://github.com/Farama-Foundation/d4rl?branch=master#89141a689b0353b0dac3da5cba60da4b1b16254d" }
+dependencies = [
+    { name = "click" },
+    { name = "dm-control" },
+    { name = "gym" },
+    { name = "h5py" },
+    { name = "mjrl" },
+    { name = "mujoco-py" },
+    { name = "numpy" },
+    { name = "pybullet" },
+    { name = "termcolor" },
 ]
 
 [[package]]
@@ -712,6 +744,22 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1", size = 101250, upload-time = "2025-04-24T03:35:25.427Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86", size = 37515, upload-time = "2025-04-24T03:35:24.344Z" },
+]
+
+[[package]]
+name = "h5py"
+version = "3.14.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5d/57/dfb3c5c3f1bf5f5ef2e59a22dec4ff1f3d7408b55bfcefcfb0ea69ef21c6/h5py-3.14.0.tar.gz", hash = "sha256:2372116b2e0d5d3e5e705b7f663f7c8d96fa79a4052d250484ef91d24d6a08f4", size = 424323, upload-time = "2025-06-06T14:06:15.01Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/52/89/06cbb421e01dea2e338b3154326523c05d9698f89a01f9d9b65e1ec3fb18/h5py-3.14.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:24df6b2622f426857bda88683b16630014588a0e4155cba44e872eb011c4eaed", size = 3332522, upload-time = "2025-06-06T14:04:13.775Z" },
+    { url = "https://files.pythonhosted.org/packages/c3/e7/6c860b002329e408348735bfd0459e7b12f712c83d357abeef3ef404eaa9/h5py-3.14.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:6ff2389961ee5872de697054dd5a033b04284afc3fb52dc51d94561ece2c10c6", size = 2831051, upload-time = "2025-06-06T14:04:18.206Z" },
+    { url = "https://files.pythonhosted.org/packages/fa/cd/3dd38cdb7cc9266dc4d85f27f0261680cb62f553f1523167ad7454e32b11/h5py-3.14.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:016e89d3be4c44f8d5e115fab60548e518ecd9efe9fa5c5324505a90773e6f03", size = 4324677, upload-time = "2025-06-06T14:04:23.438Z" },
+    { url = "https://files.pythonhosted.org/packages/b1/45/e1a754dc7cd465ba35e438e28557119221ac89b20aaebef48282654e3dc7/h5py-3.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1223b902ef0b5d90bcc8a4778218d6d6cd0f5561861611eda59fa6c52b922f4d", size = 4557272, upload-time = "2025-06-06T14:04:28.863Z" },
+    { url = "https://files.pythonhosted.org/packages/5c/06/f9506c1531645829d302c420851b78bb717af808dde11212c113585fae42/h5py-3.14.0-cp310-cp310-win_amd64.whl", hash = "sha256:852b81f71df4bb9e27d407b43071d1da330d6a7094a588efa50ef02553fa7ce4", size = 2866734, upload-time = "2025-06-06T14:04:33.5Z" },
 ]
 
 [[package]]
@@ -1318,6 +1366,11 @@ wheels = [
 ]
 
 [[package]]
+name = "mjrl"
+version = "1.0.0"
+source = { git = "https://github.com/aravindr93/mjrl?rev=master#3871d93763d3b49c4741e6daeaebbc605fe140dc" }
+
+[[package]]
 name = "mpmath"
 version = "1.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1328,7 +1381,7 @@ wheels = [
 
 [[package]]
 name = "mujoco"
-version = "3.3.4"
+version = "3.1.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "absl-py" },
@@ -1337,13 +1390,13 @@ dependencies = [
     { name = "numpy" },
     { name = "pyopengl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8b/b0/039e74c9d27747905b6dc61fe84f3b934a4519a402d36939363f879256b6/mujoco-3.3.4.tar.gz", hash = "sha256:73d764fe98e2ded9d2c75e64ef56b10d44c7883395166030995a4ac3efb9a36d", size = 810835, upload-time = "2025-07-09T20:06:40.133Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3a/e3/3ceaf70bb3ac799b5bbbe5ba676f15c5b7191cf05105ce99ecbba417265c/mujoco-3.1.6.tar.gz", hash = "sha256:7cf8887526f071e7411dc02ce1cd665e39b4b6083fdff49fe1348a82d2314651", size = 670596, upload-time = "2024-06-03T21:09:35.367Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/47/fc/a13d499bfdef0f6599843cc13c8ce8bec4361efd5d0130d932c4952a452d/mujoco-3.3.4-cp310-cp310-macosx_10_16_x86_64.whl", hash = "sha256:1c789afbf05299f6dc3fabe8f777d412ee53c252733877b000cf961e9bee64d6", size = 6620411, upload-time = "2025-07-09T20:05:48.137Z" },
-    { url = "https://files.pythonhosted.org/packages/b7/d4/4b8594a74b6753b4c5788b6911f14f1f457bc4e18e3bd66a6e1f231b71fb/mujoco-3.3.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:3142ba00a5365b38ecc53ba9df90edb27bf72aec0258a958217025b275d8b164", size = 6674724, upload-time = "2025-07-09T20:05:50.585Z" },
-    { url = "https://files.pythonhosted.org/packages/9a/5a/b3976257b890f88aaa80c8a9796bcbec61c4f9a05f5ca8c0023d9164aeac/mujoco-3.3.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b24bc558e55dbeb6a8938704e49196f877b0dff038d09d72d4e407abb2acbe73", size = 6314026, upload-time = "2025-07-09T20:05:52.492Z" },
-    { url = "https://files.pythonhosted.org/packages/51/87/4031b6c053f876fd1f4dd6c3b8f77430bc3433448fdfb83085655e1345b7/mujoco-3.3.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:491c47d4bae524e36148f512033ebcff589ef5f7946f6d59f0cbe1c5d931ea3d", size = 6597962, upload-time = "2025-07-09T20:05:54.252Z" },
-    { url = "https://files.pythonhosted.org/packages/db/04/dc34148d2792f8b705fd1c0e4f42844e6dc9f5d3ef4a587248f5c28b1aff/mujoco-3.3.4-cp310-cp310-win_amd64.whl", hash = "sha256:108ce6e1a07ae35313da9790eb37ade6fe79074cf668681885478957cee0860d", size = 5027456, upload-time = "2025-07-09T20:05:55.582Z" },
+    { url = "https://files.pythonhosted.org/packages/c3/b1/7add19db3effc1e7b5c5a87b065841aec2d3a4264fa16ab618beb0f6ee10/mujoco-3.1.6-cp310-cp310-macosx_10_16_x86_64.whl", hash = "sha256:8d1a1cea646ba7595bef586060d3d3e8e21aa9c6b8adf1d6f741619f794a9da3", size = 5768334, upload-time = "2024-06-03T21:08:04.499Z" },
+    { url = "https://files.pythonhosted.org/packages/d0/4d/ffd7d8f44af42868d16d6f5c73f4f2cf8ee5e6ce5631eb0c01b591fc1633/mujoco-3.1.6-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:cab27dc9382b6003a04daed7e5fb0339c08940bf4a7c3149cc6fd15a58e62f18", size = 5613948, upload-time = "2024-06-03T21:08:09.914Z" },
+    { url = "https://files.pythonhosted.org/packages/94/ce/fbb4d68fb4dbb40c8e5a6921fe4694f23d606f5a2b739dca0cb9bdd79abf/mujoco-3.1.6-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c0ae1c5cb2fd98eac5a666f3506f365de42fd7824d801f5b248cfd29bbbec374", size = 5356378, upload-time = "2024-06-03T21:08:12.183Z" },
+    { url = "https://files.pythonhosted.org/packages/cc/dc/1b17e4c0fea849ee07ec6762c8b1841a997b32b1ad27c0f3442287fac247/mujoco-3.1.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f4c2bbc5025bd0a06e939397188be9dc4a6b7d98aa39176d43a302a5811c0b12", size = 5514701, upload-time = "2024-06-03T21:08:14.282Z" },
+    { url = "https://files.pythonhosted.org/packages/f8/df/0fa2cd8853146da9afa162199c9a5d4a9327b82a7fccb1dbae5e5019fb4b/mujoco-3.1.6-cp310-cp310-win_amd64.whl", hash = "sha256:a23a24f7be09cd672a78a50f702afc856130ce88cf07cf1424eb81011ed9ac0d", size = 3901958, upload-time = "2024-06-03T21:08:20.993Z" },
 ]
 
 [[package]]
@@ -1839,6 +1892,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/cd/05/0a34433a064256a578f1783a10da6df098ceaa4a57bbeaa96a6c0352786b/pure_eval-0.2.3.tar.gz", hash = "sha256:5f4e983f40564c576c7c8635ae88db5956bb2229d7e9237d03b3c0b0190eaf42", size = 19752, upload-time = "2024-07-21T12:58:21.801Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8e/37/efad0257dc6e593a18957422533ff0f87ede7c9c6ea010a2177d738fb82f/pure_eval-0.2.3-py3-none-any.whl", hash = "sha256:1db8e35b67b3d218d818ae653e27f06c3aa420901fa7b081ca98cbedc874e0d0", size = 11842, upload-time = "2024-07-21T12:58:20.04Z" },
+]
+
+[[package]]
+name = "pybullet"
+version = "3.2.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/de/95/b9a98cd4ed948d4f25a7d0b13cb0c1f87e58dc6d113be9e18940641eb25f/pybullet-3.2.7.tar.gz", hash = "sha256:042879db8d101ac7590dee475fc6aded508b85fe1273fdbbfde1d88bd200e14f", size = 80508379, upload-time = "2025-01-30T00:34:00.527Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2b/e0/45278c039635529fec27814e6ad9c5a87030161f5ce714e017dd70f562f9/pybullet-3.2.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:814e6b0c035a634b5c46f69065effb085cc451886dda4140576be2f34b461940", size = 103193654, upload-time = "2025-01-30T00:18:52.555Z" },
 ]
 
 [[package]]
