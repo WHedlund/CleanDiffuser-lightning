@@ -32,10 +32,10 @@ Homepage = "https://cleandiffuserteam.github.io/CleanDiffuserDocs/"
 Repository = "https://github.com/CleanDiffuserTeam/CleanDiffuser"  
   
 [project.optional-dependencies]    
-tutorial = [
-    "gymnasium[mujoco]",  
-    "mujoco-py<2.2,>=2.1",
-]
+#tutorial = [
+#    "gymnasium[mujoco]",  
+#    "mujoco-py<2.2,>=2.1",
+#]
 d4rl = [    
     "d4rl"    
 ]  

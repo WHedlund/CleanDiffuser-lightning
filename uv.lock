@@ -335,10 +335,6 @@ jupyter = [
     { name = "jupyter" },
     { name = "jupyterlab" },
 ]
-tutorial = [
-    { name = "gymnasium", extra = ["mujoco"] },
-    { name = "mujoco-py" },
-]
 
 [package.metadata]
 requires-dist = [
@@ -349,14 +345,12 @@ requires-dist = [
     { name = "dm-control", specifier = ">=1.0.3,<=1.0.20" },
     { name = "einops" },
     { name = "gym", specifier = ">=0.13,<0.24" },
-    { name = "gymnasium", extras = ["mujoco"], marker = "extra == 'tutorial'" },
     { name = "imagecodecs" },
     { name = "ipykernel", marker = "extra == 'jupyter'" },
     { name = "jupyter", marker = "extra == 'jupyter'" },
     { name = "jupyterlab", marker = "extra == 'jupyter'" },
     { name = "matplotlib", specifier = "<=3.7.5" },
     { name = "mujoco", specifier = ">=2.0,<=3.1.6" },
-    { name = "mujoco-py", marker = "extra == 'tutorial'", specifier = ">=2.1,<2.2" },
     { name = "numba", specifier = "<0.60.0" },
     { name = "numpy", specifier = "<1.23.0" },
     { name = "opencv-python" },
@@ -369,7 +363,7 @@ requires-dist = [
     { name = "torchvision", marker = "sys_platform == 'linux' or sys_platform == 'win32'", index = "https://download.pytorch.org/whl/cu121" },
     { name = "zarr", specifier = "<2.17" },
 ]
-provides-extras = ["tutorial", "d4rl", "jupyter"]
+provides-extras = ["d4rl", "jupyter"]
 
 [[package]]
 name = "click"
@@ -616,15 +610,6 @@ wheels = [
 ]
 
 [[package]]
-name = "farama-notifications"
-version = "0.0.4"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/2e/2c/8384832b7a6b1fd6ba95bbdcae26e7137bb3eedc955c42fd5cdcc086cfbf/Farama-Notifications-0.0.4.tar.gz", hash = "sha256:13fceff2d14314cf80703c8266462ebf3733c7d165336eee998fc58e545efd18", size = 2131, upload-time = "2023-02-27T18:28:41.047Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/05/2c/ffc08c54c05cdce6fbed2aeebc46348dbe180c6d2c541c7af7ba0aa5f5f8/Farama_Notifications-0.0.4-py3-none-any.whl", hash = "sha256:14de931035a41961f7c056361dc7f980762a143d05791ef5794a751a2caf05ae", size = 2511, upload-time = "2023-02-27T18:28:39.447Z" },
-]
-
-[[package]]
 name = "fasteners"
 version = "0.19"
 source = { registry = "https://pypi.org/simple" }
@@ -751,27 +736,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/b4/62/d312681b09cacf77d04237a2815653c58e5031998bb613ce114b85fc3f57/gym-notices-0.0.8.tar.gz", hash = "sha256:ad25e200487cafa369728625fe064e88ada1346618526102659b4640f2b4b911", size = 2685, upload-time = "2022-08-14T16:59:55.692Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/25/26/d786c6bec30fe6110fd3d22c9a273a2a0e56c0b73b93e25ea1af5a53243b/gym_notices-0.0.8-py3-none-any.whl", hash = "sha256:e5f82e00823a166747b4c2a07de63b6560b1acb880638547e0cabf825a01e463", size = 2965, upload-time = "2022-08-14T16:59:54.156Z" },
-]
-
-[[package]]
-name = "gymnasium"
-version = "0.29.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cloudpickle" },
-    { name = "farama-notifications" },
-    { name = "numpy" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/5a/40/77566cb53866adba5ab91f7d59e3d10c8d0cbab59ae0839b05f60c797b6c/gymnasium-0.29.0.tar.gz", hash = "sha256:f012a2001fbbcbf70d0a2bff311aa3173efd6e3131811ab30ae06d43d31e94af", size = 820118, upload-time = "2023-07-14T22:49:04.521Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/3f/00/a728a4a8608213482fc38d76d842657d29b546f214e83801a044de074612/gymnasium-0.29.0-py3-none-any.whl", hash = "sha256:14a0e6ea9c4d34c0cd6e42e08c51e281834e9a83dc99b044427c9c6abf3b2a2b", size = 953762, upload-time = "2023-07-14T22:49:02.325Z" },
-]
-
-[package.optional-dependencies]
-mujoco = [
-    { name = "imageio" },
-    { name = "mujoco" },
 ]
 
 [[package]]
