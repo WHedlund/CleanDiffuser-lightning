@@ -73,7 +73,7 @@ $ uv sync --all-extras
 #### 4. Optional Dependencies
 
 **D4RL:** Most of our RL pipeline files run on D4RL benchmarks. Please install `mujoco` and `d4rl` following [this](https://github.com/Farama-Foundation/D4RL).
-
+[**Mujoco:**](https://github.com/google-deepmind/mujoco/releases) and install 3.1.6
 **Robomimic, PushT, Kitchen, Libero:** Most of our IL pipeline files run on these embodied AI benchmarks. Please install following instructions [here](/cleandiffuser/env/README.md).
 
 <!-- TUTORIALS -->
