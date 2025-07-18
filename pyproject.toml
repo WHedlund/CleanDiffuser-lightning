@@ -1,87 +1,124 @@
-[project]
-name = "CleanDiffuser"
-dynamic = ["version"]
-description = "CleanDiffuser: An Easy-to-use Modularized Library for Diffusion Models in Decision Making"
-authors = [{ name = "CleanDiffuserTeam" }]
-readme = "README.md"
-requires-python = "==3.10.*"
-keywords = ["reinforcement learning", "pytorch", "diffusion models"]
-dependencies = [
-    "numpy<1.23.0",
-    "einops",
-    "mujoco>=2.0,<=3.1.6",
-    "gym>=0.13,<0.24",
-    "dm_control>=1.0.3,<=1.0.20",
-    "cython==3.0.0a10",
-    "numba<0.60.0",
-    "matplotlib<=3.7.5",
-    "six",
-    "zarr<2.17",
-    "dill",
-    "av",
-    "opencv-python",
-    "imagecodecs",
-    "torch>1.0.0",
-    "torchvision",
-    "pytorch_lightning",
-    "termcolor",
+[project]  
+name = "CleanDiffuser"  
+dynamic = ["version"]  
+description = "CleanDiffuser: An Easy-to-use Modularized Library for Diffusion Models in Decision Making"  
+authors = [{ name = "CleanDiffuserTeam" }]  
+readme = "README.md"  
+requires-python = "==3.10.*"  
+keywords = ["reinforcement learning", "pytorch", "diffusion models"]  
+dependencies = [  
+    "numpy<1.23.0",  
+    "einops",  
+    "mujoco>=2.0,<=3.1.6",  
+    "gym>=0.13,<0.24",  
+    "dm_control>=1.0.3,<=1.0.20",  
+    "cython==3.0.0a10",  
+    "numba<0.60.0",  
+    "matplotlib<=3.7.5",  
+    "six",  
+    "zarr<2.17",  
+    "dill",  
+    "av",  
+    "opencv-python",  
+    "imagecodecs",  
+    "torch>1.0.0",  
+    "torchvision",  
+    "pytorch_lightning",  
+    "termcolor",  
+]  
+  
+[project.urls]  
+Homepage = "https://cleandiffuserteam.github.io/CleanDiffuserDocs/"  
+Repository = "https://github.com/CleanDiffuserTeam/CleanDiffuser"  
+  
+[project.optional-dependencies]    
+d4rl = [    
+    "d4rl"    
+]  
+jupyter = [    
+    "jupyter",    
+    "jupyterlab",     
+    "ipykernel"    
+]  
+pusht = [ 
+    "pygame",
+    "pymunk",
+    "shapely<2.0.0",
+    "scikit-image<0.23.0",
+    "opencv-python", 
+]  
+robomimic = [  
+    "torch==2.0.0",  
+    "torchvision==0.15.1",   
+    "robomimic",  
+    "robosuite"  
+]  
+relaykitchen = [  
+    "mujoco>=2.0,<=3.1.6",  
+    "dm_control>=1.0.3,<=1.0.20"  
 ]
-
-[project.optional-dependencies]  
-d4rl = [  
-    "d4rl"  
-]
-jupyter = [  
-    "jupyter",  
-    "jupyterlab",   
-    "ipykernel"  
-]
-
-[project.urls]
-Homepage = "https://cleandiffuserteam.github.io/CleanDiffuserDocs/"
-Repository = "https://github.com/CleanDiffuserTeam/CleanDiffuser"
-
-[build-system]
-requires = ["setuptools>=61.0.0", "setuptools_scm", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "setuptools>=69.5.1",
-    "setuptools_scm>=8.1.0",
-    "wheel>=0.43.0",
-]
-
-[tool.setuptools_scm]
-write_to = "cleandiffuser/_version.py"
-version_scheme = "post-release"
-local_scheme = "dirty-tag"
-
-[tool.setuptools.packages.find]
-include = ["cleandiffuser"]
-
-[tool.ruff]
-line-length = 100
-
-[tool.pyright]
-exclude = [
-    "**/__pycache__",
-    "dev/**",
-    "notebooks/**",
-    "configs/**",
-]
+libero = [  
+    "torch==1.11.0+cu113",  
+    "torchvision==0.12.0+cu113",  
+    "torchaudio==0.11.0",  
+    "robosuite",  
+    "LIBERO"  
+]  
+  
+[build-system]  
+requires = ["setuptools>=61.0.0", "setuptools_scm", "wheel"]  
+build-backend = "setuptools.build_meta"  
+  
+[tool.rye]  
+managed = true  
+dev-dependencies = [  
+    "setuptools>=69.5.1",  
+    "setuptools_scm>=8.1.0",  
+    "wheel>=0.43.0",  
+]  
+  
+[tool.setuptools_scm]  
+write_to = "cleandiffuser/_version.py"  
+version_scheme = "post-release"  
+local_scheme = "dirty-tag"  
+  
+[tool.setuptools.packages.find]  
+include = ["cleandiffuser"]  
+  
+[tool.ruff]  
+line-length = 100  
+  
+[tool.pyright]  
+exclude = [  
+    "**/__pycache__",  
+    "dev/**",  
+    "notebooks/**",  
+    "configs/**",  
+]  
+  
+[[tool.uv.index]]    
+name = "pytorch-cu121"    
+url = "https://download.pytorch.org/whl/cu121"    
+explicit = true    
 
 [[tool.uv.index]]  
-name = "pytorch-cu121"  
-url = "https://download.pytorch.org/whl/cu121"  
+name = "pytorch-cu113"  
+url = "https://download.pytorch.org/whl/cu113"  
 explicit = true  
   
-[tool.uv.sources]  
-torch = [  
-  { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },  
+[[tool.uv.index]]  
+name = "pytorch-cpu"  # or appropriate index for PyTorch 2.0.0  
+url = "https://download.pytorch.org/whl/cpu"  
+explicit = true
+  
+[tool.uv.sources]    
+torch = [    
+  { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },    
+]    
+torchvision = [    
+  { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },    
 ]  
-torchvision = [  
-  { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },  
-]
 d4rl = { git = "https://github.com/Farama-Foundation/d4rl", branch = "master" }
+robomimic = { git = "https://github.com/ARISE-Initiative/robomimic.git" }  
+robosuite = { git = "https://github.com/ARISE-Initiative/robosuite.git" }
+LIBERO = { git = "https://github.com/Lifelong-Robot-Learning/LIBERO.git" }

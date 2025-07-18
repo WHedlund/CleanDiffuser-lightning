@@ -66,6 +66,7 @@ $ uv sync
 or
 $ uv sync --extra jupyter --extra d4rl
 or
+See section 4. Optional dependencies for information about datasets. Some datasets are required for the environment creation. Some environments might not be compatible!
 $ uv sync --all-extras
 ```
 
