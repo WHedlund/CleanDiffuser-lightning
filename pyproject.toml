@@ -24,6 +24,7 @@ dependencies = [
     "torchvision",
     "pytorch_lightning",
     "termcolor",
+    "imageio[ffmpeg]>=2.37.0",
 ]  
   
 [project.urls]  
