@@ -155,8 +155,8 @@ class FancyMlpInvDynamic(MlpInvDynamic):
             path = Path(path)
             file_list = os.listdir(path)
             for each in file_list:
-                if ".ckpt" in each:
-                    print(f"Pretrained model loaded from {path / each}")
+                if each.endswith(".ckpt"):
+                    print(f"Loading pretrained model from {path / each}")
                     with open(path / "params.json", "r") as f:
                         params = json.load(f)
                     model = FancyMlpInvDynamic(**params["config"])
@@ -166,5 +166,5 @@ class FancyMlpInvDynamic(MlpInvDynamic):
                 Warning(f"No pretrained model found in {path}")
                 return None, None
         except Exception as e:
-            print(e)
+            print(f"Error loading pretrained model: {e}")
             return None, None

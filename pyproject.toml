@@ -41,10 +41,10 @@ Repository = "https://github.com/CleanDiffuserTeam/CleanDiffuser"
 d4rl = [    
     "d4rl",
 ]
-#new_d4rl = [  
-#    "gymnasium[mujoco]",
+new_d4rl = [  
+    "gymnasium[mujoco]",
 #   "minari[all]"
-#]  
+]  
 jupyter = [    
     "jupyter",    
     "jupyterlab",     
